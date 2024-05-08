@@ -1,6 +1,6 @@
 import { TokenReader } from "./token-reader";
 import { JSXTokenizer } from "./tokenizer";
-export declare module AST {
+export declare namespace AST {
     export type ASTNodeType = typeof ASTNodeType[keyof typeof ASTNodeType] | typeof FinalTokenType[keyof typeof FinalTokenType];
     export interface ASTNode {
         type: ASTNodeType;
@@ -8,7 +8,7 @@ export declare module AST {
         children?: ASTNode[];
     }
     export interface ASTElementNode extends ASTNode {
-        elementType?: "Text" | "Element" | "Comment";
+        elementType?: "Text" | "Element" | "Comment" | "Program";
         closeSelf?: Boolean | String;
     }
     export const ASTNodeType: {

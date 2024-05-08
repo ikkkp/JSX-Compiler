@@ -1,4 +1,4 @@
-export declare module JSXTokenizer {
+export declare namespace JSXTokenizer {
     interface ITokenizerConstructor {
         new (): ITokenizer;
     }
@@ -61,7 +61,7 @@ export declare class Tokenizer implements JSXTokenizer.ITokenizer {
     foundAttributeQuote(char: string): JSXTokenizer.IStateExcutor;
     foundJSXBeginTagEnd(char: string): JSXTokenizer.IStateExcutor;
     resetCurrentToken(): void;
-    emit(token: JSXTokenizer.IToken): void;
+    emit(token: JSXTokenizer.IToken, force?: boolean): void;
     pop(): JSXTokenizer.IToken | undefined;
 }
 export declare function createTokenizer(Tokenizer: JSXTokenizer.ITokenizerConstructor): JSXTokenizer.ITokenizer;

@@ -1,6 +1,7 @@
 import { TokenReader } from "./token-reader";
 import { JSXTokenizer } from "./tokenizer";
 
+//AST
 export module AST {
   export type ASTNodeType =
     | typeof ASTNodeType[keyof typeof ASTNodeType]

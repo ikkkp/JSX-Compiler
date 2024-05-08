@@ -8,9 +8,9 @@ export interface ITokenizer {
     number: IStateExcutor;
     emit: (token: Token) => void;
 }
-export declare type TokenizerParmas = string;
+export type TokenizerParmas = string;
 export interface Token {
     type: Symbol;
     value: string;
 }
-export declare type IStateExcutor = (char: string) => IStateExcutor;
+export type IStateExcutor = (char: string) => IStateExcutor;

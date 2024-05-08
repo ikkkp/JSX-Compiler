@@ -1,26 +1,27 @@
 import { AST } from "./ast";
 import { JSXTokenizer } from "./tokenizer";
-export declare module JSXCompiler {
+import { Transform } from "./transform";
+export declare namespace JSXCompiler {
     interface compileFileOptions {
         path: string;
-        reserveParserNode?: Boolean;
     }
     interface ICompiler {
         tokenizer: JSXTokenizer.ITokenizer;
         astParser: AST.IParse;
+        transformer: Transform.Transfomer;
         tokens: JSXTokenizer.IToken[];
         ast?: AST.ASTNode;
         compile(template: string): AST.ASTNode;
         compileFile(options: compileFileOptions): AST.ASTNode;
-        extractASTParserNode(node: AST.ASTNode): AST.ASTNode;
     }
     class Compiler implements ICompiler {
         tokenizer: JSXTokenizer.ITokenizer;
         astParser: AST.IParse;
+        transformer: Transform.Transfomer;
         tokens: JSXTokenizer.IToken[];
         ast?: AST.ASTNode;
-        compile(template: string, reserve?: Boolean): AST.ASTNode;
+        jsxElement?: Transform.JSXElement;
+        compile(template: string): AST.ASTNode;
         compileFile(options: compileFileOptions): AST.ASTNode;
-        extractASTParserNode(node: AST.ASTNode): AST.ASTNode;
     }
 }
